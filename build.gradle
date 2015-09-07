@@ -1,8 +1,15 @@
-plugins {
-    id 'java'
-    id 'application'
-    id 'com.github.johnrengelman.shadow' version '1.2.2'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
+    }
 }
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
 
 repositories {
     mavenCentral()
@@ -11,14 +18,14 @@ repositories {
 group 'com.sensetime.springtest'
 version '1.0'
 
-mainClassName = 'com.sensetime.sparktest.Main'
+mainClassName = 'com.sensetime.springtest.Main'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile 'org.springframework:spring-context:4.2.0.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE'
 }
 
 task wrapper(type: Wrapper) {
